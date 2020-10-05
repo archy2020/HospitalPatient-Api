@@ -22,7 +22,7 @@ module.exports.register = async (req, res) => {
       await Doctor.create(req.body);
 
       return res.status(200).json({
-        message: "Doctor successfully registered"
+        message: "Doctor successfully registered",
       });
     }
   } catch (err) {
@@ -49,8 +49,8 @@ module.exports.login = async (req, res) => {
     return res.status(200).json({
       message: "Log in successful",
       data: {
-        token: jwt.sign(doctorExist.toJSON(), "coronapatients", {
-          expiresIn: "360000000",
+        token: jwt.sign(doctorExist.toJSON(), "docpat", {
+          expiresIn: "400000000",
         }),
       },
     });
@@ -58,7 +58,7 @@ module.exports.login = async (req, res) => {
     console.log(`Error logging in doctor : ${err}`);
 
     return res.status(500).json({
-      message: "Internal Server Error",
+      message: "Some internal Server Error",
       error: err,
     });
   }

@@ -13,20 +13,20 @@ module.exports.register = async (req, res) => {
       let patient = await Patient.create(req.body);
 
       return res.status(200).json({
-        message: "Patient successfully registered",
+        message: "Patient registered successfully",
         patientId: patient._id,
       });
     } else {
       // if patient already exists
       return res.status(409).json({
-        message: "One patient already registered with this number",
+        message: "There is already one patient registered with this number",
       });
     }
   } catch (err) {
     console.log(`Error in registering patient: ${err}`);
 
     return res.status(500).json({
-      message: "Internal Server Error",
+      message: "Some internal Server Error",
     });
   }
 };

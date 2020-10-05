@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 
 //doctor schema
 const doctorSchema = new mongoose.Schema(
-  {
+  { 
     name: {
       type: String,
       required: true,
     },
-    specialty: {
+    speciality: {
       type: String,
       required: true,
     },
